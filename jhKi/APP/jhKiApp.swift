@@ -10,7 +10,6 @@ import SwiftData
 
 @main
 struct jhKiApp: App {
-    
 
     var body: some Scene {
         WindowGroup {
