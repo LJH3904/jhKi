@@ -1,5 +1,4 @@
 <details>
-<summary>2026-05-26</summary>
 
 - Git 초기 세팅 완료  
   Gitの初期設定完了
