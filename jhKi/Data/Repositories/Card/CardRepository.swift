@@ -20,7 +20,7 @@ final class CardRepository: CardRepositoryProtocol {
     }
     
     func fetchAll() throws -> [Card] {
-        return [Card(front: "", back: ""), Card(front: "", back: "")]
+        return []
     }
     
     func update(_ card: Card) throws {

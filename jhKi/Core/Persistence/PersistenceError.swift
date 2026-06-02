@@ -15,25 +15,26 @@ enum PersistenceError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
-        case .containerCreationFailed:
-            return "データベースの初期化に失敗しました。"
-        case .saveFailed:
-            return "データの保存に失敗しました。"
-        case .fetchFailed:
-            return "データの取得に失敗しました。"
-        case .deleteFailed:
-            return "データの削除に失敗しました。"
+        case .containerCreationFailed(let error):
+            return "データベースの初期化に失敗しました: \(error.localizedDescription)"
+        case .saveFailed(let error):
+            return "データの保存に失敗しました: \(error.localizedDescription)"
+        case .fetchFailed(let error):
+            return "データの取得に失敗しました: \(error.localizedDescription)"
+        case .deleteFailed(let error):
+            return "データの削除に失敗しました: \(error.localizedDescription)"
         }
     }
     var underlyingError: Error {
         switch self {
-        case
-                .containerCreationFailed(let error),
-                .saveFailed(let error),
-                .fetchFailed(let error),
-                .deleteFailed(let error):
+        case .containerCreationFailed(let error):
             return error
-            
+        case .saveFailed(let error):
+            return error
+        case .fetchFailed(let error):
+            return error
+        case .deleteFailed(let error):
+            return error
         }
     }
 }
