@@ -3,7 +3,7 @@
 //  jhKi
 //
 //  Created by LJh on 5/30/26.
-//
+// Repository → PersistenceManager → ModelContext → SwiftData Model
 
 import SwiftData
 

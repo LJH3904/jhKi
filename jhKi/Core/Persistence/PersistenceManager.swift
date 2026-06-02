@@ -13,6 +13,9 @@ final class PersistenceManager {
     
     let container: ModelContainer
     
+    var context: ModelContext {
+        container.mainContext
+    }
     
     private init() {
         let schema = Schema(
@@ -46,5 +49,22 @@ final class PersistenceManager {
             )
         }
         
+    }
+    func fetchCards() throws -> [Card] {
+        let descriptor = FetchDescriptor<Card>()
+        return try context.fetch(descriptor)
+    }
+    
+    func insertCard(front: String, back: String) {
+        let card = Card(front: front, back: back)
+        context.insert(card)
+    }
+    
+    func deleteCard(_ card: Card) {
+        context.delete(card)
+    }
+    
+    func save() throws {
+        try context.save()
     }
 }
