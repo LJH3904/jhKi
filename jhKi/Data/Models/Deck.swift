@@ -10,8 +10,25 @@ import SwiftData
 
 @Model
 final class Deck {
-    var title: String
-    init(title: String) {
-        self.title = title
+
+    // MARK: - Identity
+    var id: UUID
+
+    // MARK: - Content
+    var name: String
+
+    // MARK: - Timestamp
+    var createdAt: Date
+
+    // MARK: - Relationship (1:N)
+    var cards: [Card]
+
+    // MARK: - Init
+    init(name: String) {
+        self.id = UUID()
+        self.name = name
+        self.createdAt = .now
+
+        self.cards = []
     }
 }

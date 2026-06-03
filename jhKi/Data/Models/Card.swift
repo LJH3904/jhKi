@@ -10,11 +10,46 @@ import SwiftData
 
 @Model
 final class Card {
-    var front: String
-    var back: String
     
-    init(front: String, back: String) {
+    // MARK: - Identity
+    var id: UUID
+    
+    // MARK: - Content
+    var front: String
+    var reading: String
+    var meaning: String
+    
+    // MARK: - SM-2 State
+    var nextReviewDate: Date
+    var easinessFactor: Double
+    var repetitions: Int
+    var interval: Int
+    
+    // MARK: - Timestamp
+    var createdAt: Date
+    var updatedAt: Date
+    
+    // MARK: - Init
+    init(
+        front: String,
+        reading: String,
+        meaning: String,
+    ) {
+        self.id = UUID()
+        
         self.front = front
-        self.back = back
+        self.reading = reading
+        self.meaning = meaning
+        
+        self.nextReviewDate = .now
+        self.easinessFactor = 2.5
+        self.repetitions = 0
+        self.interval = 0
+        
+        self.createdAt = .now
+        self.updatedAt = .now
+        
     }
+    
 }
+
