@@ -19,7 +19,7 @@ final class Deck {
 
     // MARK: - Timestamp
     var createdAt: Date
-
+    
     // MARK: - Relationship (1:N)
     var cards: [Card]
 
