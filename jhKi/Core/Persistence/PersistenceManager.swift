@@ -3,7 +3,9 @@
 //  jhKi
 //
 //  Created by LJh on 5/30/26.
-//
+//  데이터베이스 초기화 / 컨테이너 관리
+//  여기에서 각 repo에거 줄 DB를 생성해서 여러곳으로 쏨
+//  ex) DeckRepository(context: PersistenceManager.shared.context)
 
 import SwiftData
 import OSLog
