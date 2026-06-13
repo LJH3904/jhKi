@@ -15,6 +15,5 @@ struct jhKiApp: App {
         WindowGroup {
             ContentView()
         }
-
     }
 }
