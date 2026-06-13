@@ -6,6 +6,7 @@
 // Repository → PersistenceManager → ModelContext → SwiftData Model
 
 import SwiftData
+import Foundation
 
 final class CardRepository: CardRepositoryProtocol {
     
@@ -45,5 +46,21 @@ final class CardRepository: CardRepositoryProtocol {
     func delete(_ card: Card) throws {
         context.delete(card)
         try context.save()
+    }
+    func fetchCards(in deck: Deck) throws -> [Card] {
+        
+        let deckId = deck.id
+        
+        let descriptor = FetchDescriptor<Card>(
+            predicate: #Predicate { $0.deck?.id == deckId }
+            /*
+             Predicate 안에서는:
+             * ❌ 복잡한 object graph 접근
+             * ❌ optional chaining 일부 제한
+             * ❌ 외부 객체 직접 참조 구조 제한
+             */
+        )
+        
+        return try context.fetch(descriptor)
     }
 }
