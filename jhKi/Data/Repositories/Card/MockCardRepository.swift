@@ -9,21 +9,13 @@ import Foundation
 
 final class MockCardRepository:
     CardRepositoryProtocol {
-    
-    func create(front: String, back: String) {
+    func create(front: String, reading: String, meaning: String) throws {
         
     }
     
     func fetchAll() throws -> [Card] {
         [
-            Card(
-                front: "Apple",
-                back: "りんご"
-            ),
-            Card(
-                front: "Banana",
-                back: "バナナ"
-            )
+            Card(front: "s", reading: "a", meaning: "a")
         ]
     }
     

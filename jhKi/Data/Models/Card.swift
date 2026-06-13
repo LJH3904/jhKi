@@ -19,6 +19,8 @@ final class Card {
     var reading: String
     var meaning: String
     
+    var deck: Deck?
+    
     // MARK: - SM-2 State
     var nextReviewDate: Date
     var easinessFactor: Double

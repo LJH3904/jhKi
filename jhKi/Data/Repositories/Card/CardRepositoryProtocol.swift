@@ -10,8 +10,10 @@ import Foundation
 protocol CardRepositoryProtocol {
     func create(
         front: String,
-        back: String
-    )
+        reading: String,
+        meaning: String
+    ) throws
+    
     func fetchAll() throws -> [Card]
     func update(_ card: Card) throws
     func delete(_ card: Card) throws

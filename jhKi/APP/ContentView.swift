@@ -17,27 +17,13 @@ struct ContentView: View {
         VStack {
             Button("Create") {
                 
-                pm.insertCard(front: "hello", back: "인사")
-                
-                try? pm.save()
-                
             }
             
             Button("Fetch") {
                 
-                cards = (try? pm.fetchCards()) ?? []
-                
             }
             
             List(cards, id: \.self) { card in
-                
-                VStack {
-                    
-                    Text(card.front)
-                    
-                    Text(card.back)
-                    
-                }
                 
             }
             
