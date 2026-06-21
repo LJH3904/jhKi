@@ -22,9 +22,13 @@ final class Card {
     var deck: Deck?
     
     // MARK: - SM-2 State
+    /// 다시 나올 날짜
     var nextReviewDate: Date
+    /// 카드 난이도 값
     var easinessFactor: Double
+    /// 연속으로 맞춘 횟수
     var repetitions: Int
+    /// 몇일인지
     var interval: Int
     
     // MARK: - Timestamp

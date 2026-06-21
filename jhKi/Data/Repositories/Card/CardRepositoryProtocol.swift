@@ -18,4 +18,6 @@ protocol CardRepositoryProtocol {
     func update(_ card: Card) throws
     func delete(_ card: Card) throws
     func fetchCards(in deck: Deck) throws -> [Card]   // ← 추가
+    func fetchDueCards() throws -> [Card] 
+
 }

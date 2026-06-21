@@ -9,6 +9,12 @@ import Foundation
 
 final class MockCardRepository:
     CardRepositoryProtocol {
+    func fetchDueCards() throws -> [Card] {
+        [
+            Card(front: "s", reading: "a", meaning: "a")
+        ]
+    }
+    
     func fetchCards(in deck: Deck) throws -> [Card] {
         [
             Card(front: "s", reading: "a", meaning: "a")

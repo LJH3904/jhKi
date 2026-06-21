@@ -63,4 +63,13 @@ final class CardRepository: CardRepositoryProtocol {
         
         return try context.fetch(descriptor)
     }
+    func fetchDueCards() throws -> [Card] {
+        let now = Date()
+        
+        let descriptor = FetchDescriptor<Card>(
+            predicate: #Predicate { $0.nextReviewDate <= now }
+        )
+        
+        return try context.fetch(descriptor)
+    }
 }

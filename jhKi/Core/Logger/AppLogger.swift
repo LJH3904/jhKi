@@ -6,17 +6,30 @@
 //
 
 import Foundation
-import OSLog
 
-enum AppLogger {
-    private static let subSystem = Bundle.main.bundleIdentifier ?? "com.jhki.app"
-    static let persistence = Logger(
-        subsystem: subSystem, category: "Persistence"
-    )
-    static let network = Logger(
-        subsystem: subSystem, category: "Network"
-    )
-    static let ui = Logger(
-        subsystem: subSystem, category: "UI"
-    )
+enum LogLevel {
+    case debug
+    case error
+    case info
+}
+
+final class AppLogger {
+
+    static func log(
+        _ message: String,
+        level: LogLevel = .debug,
+        file: String = #file,
+        line: Int = #line
+    ) {
+        let fileName = (file as NSString).lastPathComponent
+
+        switch level {
+        case .debug:
+            print("🟡 [DEBUG] \(fileName):\(line) - \(message)")
+        case .error:
+            print("🔴 [ERROR] \(fileName):\(line) - \(message)")
+        case .info:
+            print("🔵 [INFO] \(message)")
+        }
+    }
 }
